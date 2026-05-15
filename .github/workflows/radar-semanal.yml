@@ -1,0 +1,48 @@
+name: Radar Semanal Ecart Pay
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'   # Lunes 12:00 UTC = 6:00 AM Monterrey (CST)
+  workflow_dispatch:         # Permite disparo manual desde la UI de GitHub
+
+jobs:
+  generar-reporte:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write        # Necesario para hacer commit y push
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar agente de noticias
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python agent.py
+
+      - name: Copiar reporte más reciente a docs/index.html
+        run: |
+          mkdir -p docs
+          latest=$(ls -t reportes/reporte_*.html | head -1)
+          cp "$latest" docs/index.html
+          echo "✅ Publicando: $latest → docs/index.html"
+
+      - name: Commit y push del reporte
+        run: |
+          git config user.name "Ecart Pay Bot"
+          git config user.email "actions@github.com"
+          git add reportes/ docs/
+          git diff --cached --quiet && echo "Sin cambios nuevos." || (
+            git commit -m "reporte: radar semanal $(date -u +'%Y-%m-%d')" &&
+            git push
+          )
