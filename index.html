@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecart Pay · Preview de Diseño</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .main-header {
+      background: #000000;
+      color: #fff;
+      padding: 32px 24px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .header-logo { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header-logo span { color: #68AE34; }
+    .header-subtitle { font-size: 1rem; color: #94a3b8; margin-top: 4px; font-weight: 500; }
+    .header-date {
+      display: inline-block;
+      margin-top: 12px;
+      background: rgba(104,174,52,0.15);
+      border: 1px solid rgba(104,174,52,0.4);
+      color: #68AE34;
+      padding: 4px 16px;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* Nav */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000000;
+      border-bottom: 2px solid #68AE34;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .nav-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-group { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; }
+    .nav-divider {
+      width: 1px;
+      height: 24px;
+      background: #333;
+      margin: 0 8px;
+      flex-shrink: 0;
+    }
+    .nav-link {
+      display: inline-block;
+      padding: 10px 12px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: color 0.2s, background 0.2s;
+      border-radius: 4px;
+    }
+    .nav-link:hover { color: #68AE34; background: rgba(104,174,52,0.1); }
+
+    /* Filters */
+    .nav-filter-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0 6px;
+    }
+    .filter-btn {
+      border: 1px solid #333;
+      background: transparent;
+      color: #94a3b8;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: #68AE34; color: #68AE34; }
+    .filter-btn.active { background: #68AE34; border-color: #68AE34; color: #fff; }
+    .filter-btn.filter-alta.active { background: #dc2626; border-color: #dc2626; }
+    .filter-btn.filter-media.active { background: #d97706; border-color: #d97706; }
+    .filter-btn.filter-baja.active { background: #16a34a; border-color: #16a34a; }
+
+    /* Main */
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    /* Exec Summary */
+    .exec-summary {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+      border-top: 4px solid #68AE34;
+    }
+    .exec-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; color: #000; }
+    .stats-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .stat-card {
+      flex: 1;
+      min-width: 140px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-number { display: block; font-size: 2.2rem; font-weight: 800; color: #000; line-height: 1; }
+    .stat-label { display: block; font-size: 0.78rem; color: #64748b; margin-top: 6px; font-weight: 600; }
+
+    /* Section */
+    .section { margin-bottom: 48px; }
+    .section-header {
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      padding: 24px 28px 20px;
+      border-bottom: 2px solid #E1EFD6;
+      border-top: 4px solid #68AE34;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .section-emoji { font-size: 1.8rem; }
+    .section-title { font-size: 1.4rem; font-weight: 800; color: #000; }
+    .section-count {
+      margin-left: auto;
+      background: #E1EFD6;
+      border: 1px solid #68AE34;
+      color: #4E8327;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .trend-box {
+      background: #E1EFD6;
+      border-left: 3px solid #68AE34;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+    }
+    .trend-label { font-size: 0.78rem; font-weight: 700; color: #4E8327; text-transform: uppercase; letter-spacing: 0.05em; }
+    .trend-text { font-size: 0.9rem; color: #1e293b; margin-top: 2px; }
+
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+      background: #f1f5f9;
+      border-radius: 0 0 16px 16px;
+      padding: 20px;
+    }
+
+    /* Card */
+    .news-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.4s ease both;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card.hidden { display: none; }
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(104,174,52,0.15);
+      border-color: #68AE34;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .card-source-row { display: flex; flex-direction: column; gap: 2px; }
+    .card-source { font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.04em; }
+    .card-date { font-size: 0.72rem; color: #94a3b8; }
+    .relevance-badge {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .card-title { font-size: 0.95rem; font-weight: 700; color: #000; margin-bottom: 8px; line-height: 1.4; }
+    .card-summary { font-size: 0.875rem; color: #334155; margin-bottom: 14px; line-height: 1.6; }
+    .relevance-box { padding: 10px 12px; border-radius: 0 8px 8px 0; }
+    .relevance-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .relevance-text { font-size: 0.82rem; color: #374151; margin-top: 3px; line-height: 1.5; }
+    .read-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #4E8327;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid #68AE34;
+      padding: 5px 12px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .read-link:hover { background: #68AE34; color: #fff; }
+
+    /* Preview banner */
+    .preview-banner {
+      background: #fffbeb;
+      border: 1px solid #fbbf24;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin-bottom: 24px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #92400e;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+      background: #fff;
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .stats-row { flex-direction: column; }
+      .nav-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-logo">Ecart <span>Pay</span></div>
+    <div class="header-subtitle">Monitor de Noticias · Pagos Digitales &amp; Fintech México</div>
+    <div class="header-date">📅 13 de mayo de 2026</div>
+  </header>
+
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <div class="nav-group nav-categories">
+        <a href="#regulacion" class="nav-link">⚖️ Regulación Financiera</a>
+        <a href="#competencia" class="nav-link">🎯 Competencia</a>
+        <a href="#fintech-pagos" class="nav-link">⚡ Fintech y Pagos</a>
+        <a href="#tendencias-latam" class="nav-link">🌎 Tendencias LATAM</a>
+        <a href="#nuevas-tecnologias" class="nav-link">🚀 Nuevas Tecnologías</a>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-group nav-filters">
+        <span class="nav-filter-label">Filtrar:</span>
+        <button class="filter-btn active" data-filter="all" onclick="filterCards('all')">Todas</button>
+        <button class="filter-btn filter-alta" data-filter="alta" onclick="filterCards('alta')">🔴 Alta</button>
+        <button class="filter-btn filter-media" data-filter="media" onclick="filterCards('media')">🟡 Media</button>
+        <button class="filter-btn filter-baja" data-filter="baja" onclick="filterCards('baja')">🟢 Baja</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="preview-banner">
+      ⚠️ Este es un reporte de preview con noticias ficticias para validar el diseño. Las noticias reales se generan con <code>python agent.py</code>
+    </div>
+
+    <!-- Resumen Ejecutivo -->
+    <div class="exec-summary">
+      <h2 class="exec-title">📊 Resumen Ejecutivo</h2>
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-number">6</span>
+          <span class="stat-label">Noticias encontradas</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" style="color:#dc2626">2</span>
+          <span class="stat-label">🔴 Relevancia alta</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" style="color:#d97706">3</span>
+          <span class="stat-label">🟡 Relevancia media</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" style="color:#16a34a">1</span>
+          <span class="stat-label">🟢 Relevancia baja</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 1: Regulación -->
+    <section id="regulacion" class="section">
+      <div class="section-header">
+        <div class="section-title-row">
+          <span class="section-emoji">⚖️</span>
+          <h2 class="section-title">Regulación Financiera</h2>
+          <span class="section-count">2 noticias</span>
+        </div>
+        <div class="trend-box">
+          <span class="trend-label">📈 Tendencia general:</span>
+          <p class="trend-text">El CNBV avanza en la regulación de agregadores de pago, lo que podría impactar directamente los modelos de adquirencia en México durante el segundo semestre de 2026.</p>
+        </div>
+      </div>
+      <div class="cards-grid">
+
+        <div class="news-card" data-nivel="alta" style="animation-delay:0s">
+          <div class="card-header">
+            <div class="card-source-row">
+              <span class="card-source">El Economista</span>
+              <span class="card-date">12 de mayo de 2026</span>
+            </div>
+            <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">🔴 Alta</span>
+          </div>
+          <h3 class="card-title">CNBV publica nuevas reglas para agregadores de pago: límites de transacción y requisitos de capital mínimo</h3>
+          <p class="card-summary">La Comisión Nacional Bancaria y de Valores emitió un borrador de regulación que establece límites mensuales de procesamiento para empresas no bancarias y exige un capital mínimo de 50 millones de pesos. Las nuevas reglas entrarán en vigor en enero de 2027 y afectarán a todos los adquirentes del mercado. El periodo de comentarios cierra el 30 de junio de 2026.</p>
+          <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+            <span class="relevance-label" style="color:#dc2626;">Relevancia para Ecart Pay:</span>
+            <p class="relevance-text">Impacto directo: Ecart Pay opera como adquirente y deberá cumplir los nuevos requisitos de capital y reporteo. Requiere atención inmediata del equipo de compliance.</p>
+          </div>
+          <a class="read-link" href="https://example.com" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+        </div>
+
+        <div class="news-card" data-nivel="media" style="animation-delay:0.1s">
+          <div class="card-header">
+            <div class="card-source-row">
+              <span class="card-source">Expansión</span>
+              <span class="card-date">11 de mayo de 2026</span>
+            </div>
+            <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">🟡 Media</span>
+          </div>
+          <h3 class="card-title">Banxico actualiza el marco operativo de SPEI para reducir fraudes en transferencias nocturnas</h3>
+          <p class="card-summary">El Banco de México anunció mejoras al sistema SPEI que incluyen validación biométrica opcional para transferencias superiores a 50,000 pesos realizadas entre las 10 PM y las 6 AM. La medida busca reducir el fraude por SIM swapping que aumentó 34% en 2025. Los bancos y procesadores tendrán 6 meses para adaptar sus sistemas.</p>
+          <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+            <span class="relevance-label" style="color:#d97706;">Relevancia para Ecart Pay:</span>
+            <p class="relevance-text">Afecta el procesamiento de pagos nocturnos. Ecart Pay deberá evaluar si sus integraciones con SPEI requieren ajustes para soportar la nueva capa de validación.</p>
+          </div>
+          <a class="read-link" href="https://example.com" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección 2: Competencia -->
+    <section id="competencia" class="section">
+      <div class="section-header">
+        <div class="section-title-row">
+          <span class="section-emoji">🎯</span>
+          <h2 class="section-title">Competencia</h2>
+          <span class="section-count">2 noticias</span>
+        </div>
+        <div class="trend-box">
+          <span class="trend-label">📈 Tendencia general:</span>
+          <p class="trend-text">Los competidores directos de Ecart Pay aceleran su expansión en el segmento de POS físico para PyMEs, lo que intensifica la presión en precios y comisiones de adquirencia.</p>
+        </div>
+      </div>
+      <div class="cards-grid">
+
+        <div class="news-card" data-nivel="alta" style="animation-delay:0s">
+          <div class="card-header">
+            <div class="card-source-row">
+              <span class="card-source">Forbes México</span>
+              <span class="card-date">10 de mayo de 2026</span>
+            </div>
+            <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">🔴 Alta</span>
+          </div>
+          <h3 class="card-title">Clip anuncia terminal POS con pantalla táctil y comisiones de 1.8% para comercios con más de 50k mensuales</h3>
+          <p class="card-summary">Clip presentó su nueva terminal Clip Pro 3 con pantalla de 5 pulgadas, impresora integrada y conectividad 5G. La compañía anunció un esquema de comisiones decrecientes que llega hasta 1.8% para comercios de mayor volumen, por debajo de la tasa promedio del mercado de 2.4%. El lanzamiento está programado para julio de 2026 con preventa disponible desde hoy.</p>
+          <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+            <span class="relevance-label" style="color:#dc2626;">Relevancia para Ecart Pay:</span>
+            <p class="relevance-text">Competidor directo bajando comisiones agresivamente. Ecart Pay debe revisar su propuesta de valor y estructura tarifaria para el segmento de PyMEs medianas antes del lanzamiento de Clip en julio.</p>
+          </div>
+          <a class="read-link" href="https://example.com" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+        </div>
+
+        <div class="news-card" data-nivel="media" style="animation-delay:0.1s">
+          <div class="card-header">
+            <div class="card-source-row">
+              <span class="card-source">TechCrunch en Español</span>
+              <span class="card-date">9 de mayo de 2026</span>
+            </div>
+            <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">🟡 Media</span>
+          </div>
+          <h3 class="card-title">Conekta levanta Serie C de $80M USD para expandir su infraestructura de pagos en México y Colombia</h3>
+          <p class="card-summary">La fintech mexicana Conekta cerró una ronda de financiamiento de 80 millones de dólares liderada por SoftBank Latin America Fund. Los fondos se destinarán a reforzar su plataforma de pagos en línea y lanzar operaciones en Colombia en el cuarto trimestre de 2026. La compañía reporta un crecimiento del 120% en volumen procesado durante 2025.</p>
+          <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+            <span class="relevance-label" style="color:#d97706;">Relevancia para Ecart Pay:</span>
+            <p class="relevance-text">Conekta fortalece su posición en pagos en línea con más capital. Si bien el foco de Ecart Pay es adquirencia física, la expansión de Conekta podría presionar el segmento de e-commerce donde ambos compiten.</p>
+          </div>
+          <a class="read-link" href="https://example.com" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección 3: Tendencias LATAM (1 noticia baja) -->
+    <section id="tendencias-latam" class="section">
+      <div class="section-header">
+        <div class="section-title-row">
+          <span class="section-emoji">🌎</span>
+          <h2 class="section-title">Tendencias LATAM</h2>
+          <span class="section-count">1 noticia</span>
+        </div>
+        <div class="trend-box">
+          <span class="trend-label">📈 Tendencia general:</span>
+          <p class="trend-text">La adopción de pagos sin contacto en LATAM creció 67% en 2025 impulsada por Brasil y México, aunque la infraestructura NFC en comercios pequeños sigue siendo la principal barrera.</p>
+        </div>
+      </div>
+      <div class="cards-grid">
+
+        <div class="news-card" data-nivel="baja" style="animation-delay:0s">
+          <div class="card-header">
+            <div class="card-source-row">
+              <span class="card-source">Fintech Latam Review</span>
+              <span class="card-date">8 de mayo de 2026</span>
+            </div>
+            <span class="relevance-badge" style="background:#f0fdf4; color:#16a34a; border:1px solid #16a34a40;">🟢 Baja</span>
+          </div>
+          <h3 class="card-title">El Banco Mundial proyecta que el 78% de transacciones en LATAM serán digitales para 2030</h3>
+          <p class="card-summary">Un nuevo informe del Banco Mundial estima que América Latina alcanzará el 78% de transacciones digitales sobre el total de pagos de consumo para 2030, frente al 54% registrado en 2025. El estudio destaca a México y Brasil como los mercados con mayor potencial de crecimiento, impulsados por la infraestructura de pagos instantáneos y la penetración de smartphones.</p>
+          <div class="relevance-box" style="border-left:3px solid #16a34a; background:#f0fdf4;">
+            <span class="relevance-label" style="color:#16a34a;">Relevancia para Ecart Pay:</span>
+            <p class="relevance-text">Contexto favorable de largo plazo para el negocio de adquirencia digital. Sin impacto operativo inmediato, pero refuerza la dirección estratégica del mercado en el que opera Ecart Pay.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Generado automáticamente por Ecart Pay News Agent · claude-sonnet-4-6 · 13 de mayo de 2026
+  </footer>
+
+  <script>
+    function filterCards(nivel) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.filter === nivel) btn.classList.add('active');
+      });
+
+      document.querySelectorAll('.news-card').forEach(card => {
+        if (nivel === 'all' || card.dataset.nivel === nivel) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.querySelectorAll('.section').forEach(section => {
+        const visible = section.querySelectorAll('.news-card:not(.hidden)').length;
+        const countEl = section.querySelector('.section-count');
+        if (countEl) {
+          const total = section.querySelectorAll('.news-card').length;
+          countEl.textContent = nivel === 'all' ? `${total} noticias` : `${visible} / ${total} noticias`;
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
