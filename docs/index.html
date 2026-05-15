@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecart Pay · Noticias del día — 15 de mayo de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .main-header {
+      background: #000000;
+      color: #fff;
+      padding: 32px 24px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .header-logo { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header-logo span { color: #68AE34; }
+    .header-subtitle { font-size: 1rem; color: #94a3b8; margin-top: 4px; font-weight: 500; }
+    .header-date {
+      display: inline-block;
+      margin-top: 12px;
+      background: rgba(104,174,52,0.15);
+      border: 1px solid rgba(104,174,52,0.4);
+      color: #68AE34;
+      padding: 4px 16px;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* Nav */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #000000;
+      border-bottom: 2px solid #68AE34;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .nav-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-group { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; }
+    .nav-divider {
+      width: 1px;
+      height: 24px;
+      background: #333;
+      margin: 0 8px;
+      flex-shrink: 0;
+    }
+    .nav-link {
+      display: inline-block;
+      padding: 10px 12px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: color 0.2s, background 0.2s;
+      border-radius: 4px;
+    }
+    .nav-link:hover { color: #68AE34; background: rgba(104,174,52,0.1); }
+
+    /* Filters */
+    .nav-filter-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0 6px;
+    }
+    .filter-btn {
+      border: 1px solid #333;
+      background: transparent;
+      color: #94a3b8;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: "Montserrat", sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: #68AE34; color: #68AE34; }
+    .filter-btn.active { background: #68AE34; border-color: #68AE34; color: #fff; }
+    .filter-btn.filter-alta.active { background: #dc2626; border-color: #dc2626; }
+    .filter-btn.filter-media.active { background: #d97706; border-color: #d97706; }
+    .filter-btn.filter-baja.active { background: #16a34a; border-color: #16a34a; }
+
+    /* Main */
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    /* Exec Summary */
+    .exec-summary {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+      border-top: 4px solid #68AE34;
+    }
+    .exec-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; color: #000; }
+    .stats-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .stat-card {
+      flex: 1;
+      min-width: 140px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-number { display: block; font-size: 2.2rem; font-weight: 800; color: #000; line-height: 1; }
+    .stat-label { display: block; font-size: 0.78rem; color: #64748b; margin-top: 6px; font-weight: 600; }
+
+    /* Section */
+    .section { margin-bottom: 48px; }
+    .section-header {
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      padding: 24px 28px 20px;
+      border-bottom: 2px solid #E1EFD6;
+      border-top: 4px solid #68AE34;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .section-emoji { font-size: 1.8rem; }
+    .section-title { font-size: 1.4rem; font-weight: 800; color: #000; }
+    .section-count {
+      margin-left: auto;
+      background: #E1EFD6;
+      border: 1px solid #68AE34;
+      color: #4E8327;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .trend-box {
+      background: #E1EFD6;
+      border-left: 3px solid #68AE34;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+    }
+    .trend-label { font-size: 0.78rem; font-weight: 700; color: #4E8327; text-transform: uppercase; letter-spacing: 0.05em; }
+    .trend-text { font-size: 0.9rem; color: #1e293b; margin-top: 2px; }
+
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+      background: #f1f5f9;
+      border-radius: 0 0 16px 16px;
+      padding: 20px;
+    }
+    .no-news { color: #94a3b8; font-size: 0.9rem; padding: 16px; }
+
+    /* Card */
+    .news-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      animation: fadeUp 0.4s ease both;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .news-card.hidden { display: none; }
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(104,174,52,0.15);
+      border-color: #68AE34;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .card-source-row { display: flex; flex-direction: column; gap: 2px; }
+    .card-source { font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.04em; }
+    .card-date { font-size: 0.72rem; color: #94a3b8; }
+    .relevance-badge {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .card-title { font-size: 0.95rem; font-weight: 700; color: #000; margin-bottom: 8px; line-height: 1.4; }
+    .card-summary { font-size: 0.875rem; color: #334155; margin-bottom: 14px; line-height: 1.6; }
+    .relevance-box { padding: 10px 12px; border-radius: 0 8px 8px 0; }
+    .relevance-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .relevance-text { font-size: 0.82rem; color: #374151; margin-top: 3px; line-height: 1.5; }
+    .read-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #4E8327;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid #68AE34;
+      padding: 5px 12px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .read-link:hover { background: #68AE34; color: #fff; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+      background: #fff;
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .stats-row { flex-direction: column; }
+      .nav-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-logo">Ecart <span>Pay</span></div>
+    <div class="header-subtitle">Monitor de Noticias · Pagos Digitales &amp; Fintech México</div>
+    <div class="header-date">📅 15 de mayo de 2026</div>
+  </header>
+
+
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <div class="nav-group nav-categories">
+      <a href="#regulacion" class="nav-link">⚖️ Regulación Financiera</a>
+      <a href="#competencia" class="nav-link">🎯 Competencia</a>
+      <a href="#fintech-pagos" class="nav-link">⚡ Fintech y Pagos</a>
+      <a href="#tendencias-latam" class="nav-link">🌎 Tendencias LATAM</a>
+      <a href="#nuevas-tecnologias" class="nav-link">🚀 Nuevas Tecnologías de Pago</a>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-group nav-filters">
+        <span class="nav-filter-label">Filtrar:</span>
+        <button class="filter-btn active" data-filter="all" onclick="filterCards('all')">Todas</button>
+        <button class="filter-btn filter-alta" data-filter="alta" onclick="filterCards('alta')">🔴 Alta</button>
+        <button class="filter-btn filter-media" data-filter="media" onclick="filterCards('media')">🟡 Media</button>
+        <button class="filter-btn filter-baja" data-filter="baja" onclick="filterCards('baja')">🟢 Baja</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+  <div class="exec-summary">
+    <h2 class="exec-title">📊 Resumen Ejecutivo</h2>
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-number">20</span>
+        <span class="stat-label">Noticias encontradas</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" style="color:#dc2626">11</span>
+        <span class="stat-label">🔴 Relevancia alta</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" style="color:#d97706">9</span>
+        <span class="stat-label">🟡 Relevancia media</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" style="color:#16a34a">0</span>
+        <span class="stat-label">🟢 Relevancia baja</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="regulacion" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">⚖️</span>
+        <h2 class="section-title">Regulación Financiera</h2>
+        <span class="section-count">5 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El mercado de adquirencia en México enfrenta una semana de señales mixtas: por un lado, la entrada de nuevos competidores globales como Nuvei con modelo de adquirencia directa intensifica la presión competitiva; por otro, la agenda regulatoria de CNBV y Banxico —desde la eliminación de comisiones en gasolineras hasta la posible obligatoriedad del pago digital en sectores clave— redefine la estructura de ingresos y abre nuevos mercados para adquirentes establecidos.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Expansión / FintechExpert</span>
+          <span class="card-date">2026-05-04</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Nuvei habilita la adquirencia local para potenciar el comercio en México</h3>
+      <p class="card-summary">Nuvei anunció el despliegue oficial de su modelo de adquirencia directa en México, en un mercado de pagos digitales que supera los 676,000 millones de dólares y cerca de 97,000 millones en e-commerce. La entrada de un nuevo adquirente global con modelo directo intensifica la competencia en el ecosistema de adquirencia local.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Nuvei entra como competidor directo en adquirencia local en México, el mismo mercado en el que opera Ecart Pay. Implica mayor competencia por merchants, presión en pricing y diferenciación de propuesta de valor.</p>
+      </div>
+      <a class="read-link" href="https://expansion.mx/tecnologia/2026/05/04/nuvei-habilita-la-adquirencia-local-para-potenciar-el-comercio-en-mexico" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">FintechExpert / Santa Marina Steta</span>
+          <span class="card-date">2026-05-01</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Comisiones cero en gasolineras: CNBV y Banxico eliminan cuotas de intercambio en estaciones de servicio</h3>
+      <p class="card-summary">Desde el 1 de mayo de 2026 entró en vigor el acuerdo entre la Secretaría de Hacienda, la ABM y la industria de vales para eliminar comisiones de intercambio en gasolineras, vigente hasta el 31 de octubre de 2026. La medida fue acompañada de disposiciones regulatorias de CNBV y Banxico que ajustan el esquema de cuotas de intercambio en ese segmento.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Decisión regulatoria directa de CNBV y Banxico que modifica la estructura de ingresos por interchange en un segmento específico. Establece un precedente de intervención regulatoria en comisiones que puede extenderse a otros verticales donde opera Ecart Pay como adquirente.</p>
+      </div>
+      <a class="read-link" href="https://www.fintechexpert.mx/p/comisiones-cero-gasolineras-pagos-digitales-mexico" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Cronista México</span>
+          <span class="card-date">2026-05-08</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">México rezagado frente al boom de pagos en tiempo real en América Latina</h3>
+      <p class="card-summary">Un análisis reciente evidencia que México se mantiene rezagado frente a países como Brasil y Colombia en la adopción de pagos en tiempo real, a pesar del crecimiento de SPEI. El avance de soluciones como Pix en Brasil marca una brecha regional que presiona al ecosistema mexicano a acelerar su modernización.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Señala el contexto competitivo regional que enfrenta México en infraestructura de pagos, relevante para Ecart Pay al evaluar adopción de nuevos rieles de pago (SPEI, CoDi) como complemento o alternativa a la adquirencia con tarjetas.</p>
+      </div>
+      <a class="read-link" href="https://www.cronista.com/mexico/finanzas-economia/el-efecto-pix-sacude-a-la-region-por-que-mexico-queda-rezagado-frente-al-boom-de-pagos-en-tiempo-real/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Cronista México</span>
+          <span class="card-date">2026-05-12</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Gobierno federal analiza hacer obligatorio el pago digital en gasolineras y casetas en 2026</h3>
+      <p class="card-summary">La presidenta Claudia Sheinbaum señaló que el objetivo es hacer obligatorio el pago digital en gasolineras y casetas de cobro, como parte de una agenda para reducir el uso de efectivo. El gobierno federal analiza la implementación gradual de esta medida durante 2026.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Una política de digitalización forzada de pagos en segmentos específicos puede abrir oportunidades de expansión para adquirentes como Ecart Pay en verticales de alta frecuencia transaccional (gasolineras, autopistas), ampliando el mercado adquirible.</p>
+      </div>
+      <a class="read-link" href="https://www.cronista.com/mexico/actualidad-mx/claudia-sheinbaum-quiere-eliminar-el-efectivo-y-los-pagos-digitales-ya-explotaron-que-pasara-con-quienes-no-tengan-tarjeta-de-credito-o-debito/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.4s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">CNBV (Normatividad oficial)</span>
+          <span class="card-date">2026-01-01</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">CNBV actualiza disposiciones contables para Instituciones de Fondos de Pago Electrónico (IFPE) vigentes desde enero 2026</h3>
+      <p class="card-summary">La CNBV publicó actualizaciones a las disposiciones de carácter general aplicables a las instituciones de tecnología financiera, incluyendo nuevos criterios contables para las IFPE que entraron en vigor el 1 de enero de 2026. Los cambios afectan los esquemas de reporte y contabilidad de entidades reguladas bajo la Ley Fintech.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Aunque no impacta directamente a Ecart Pay como adquirente no regulado como IFPE, establece el marco regulatorio del ecosistema de pagos electrónicos con el que interactúan sus clientes y socios; relevante si Ecart Pay tiene planes de obtener licencia IFPE o trabaja con entidades reguladas.</p>
+      </div>
+      <a class="read-link" href="https://www.cnbv.gob.mx/Normatividad/Disposiciones%20de%20car%C3%A1cter%20general%20aplicables%20a%20las%20instituciones%20de%20tecnolog%C3%ADa%20financiera.pdf" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+    </div>
+  </section>
+
+  <section id="competencia" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">🎯</span>
+        <h2 class="section-title">Competencia</h2>
+        <span class="section-count">5 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El mercado de adquirencia en México en inicio de 2026 muestra una consolidación acelerada vía alianzas banco-fintech (BBVA-Conekta) y expansión de competidores como Kushki y Getnet, elevando la presión competitiva sobre adquirentes independientes como Ecart Pay; la diferenciación por métodos de pago diversos y soluciones integradas (BNPL, SoftPOS) se perfila como el eje de competencia central del año.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Tecnoempresa / Mexico Business News</span>
+          <span class="card-date">2026-01-26</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">BBVA México lanzó Pago Directo con Conekta para cobros digitales integrados</h3>
+      <p class="card-summary">BBVA México presentó 'Pago Directo' en alianza con Conekta, una solución de cobros digitales integrados directamente en la app del banco para e-commerce. Durante el piloto se registraron 26,000 transacciones por 25.3 millones de pesos y se alcanzaron 24,000 usuarios con un ticket promedio cercano a mil pesos.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">La alianza entre un banco de primer nivel (BBVA) y un competidor directo (Conekta) profundiza la integración bancaria-adquirente en e-commerce mexicano, presionando el modelo de valor de adquirentes independientes como Ecart Pay. El volumen transaccional ya validado indica adopción acelerada.</p>
+      </div>
+      <a class="read-link" href="https://tecnoempresa.mx/bbva-mexico-lanzo-pago-directo-con-conekta-para-cobros-digitales-integrados/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Noti.mx</span>
+          <span class="card-date">2025-08-22</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Conekta y Aplazo anuncian alianza BNPL para e-commerce en México</h3>
+      <p class="card-summary">Conekta y Aplazo anunciaron una alianza estratégica para integrar la primera solución BNPL (compra ahora, paga después) mexicana directamente en la plataforma de pagos de Conekta para e-commerce. La integración busca mejorar la conversión y liquidez de los comercios en línea.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Conekta, competidor directo de Ecart Pay en adquirencia/e-commerce, amplía su oferta de valor con BNPL nativo. Esto eleva el estándar competitivo en la vertical de pagos digitales para comercios en México, donde Ecart Pay debe evaluar si suma capacidades similares.</p>
+      </div>
+      <a class="read-link" href="https://noti.mx/2025/08/22/conekta-la-plataforma-mexicana-lider-en-procesamiento-de-pagos-digitales-y-aplazo-marca-lider-de-compra-ahora-paga-despues-bnpl-por-sus-siglas-en-ingles-en-mexico-anuncian-un/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Fintech Expert MX / Digital Plural / La Guía de Franquicias</span>
+          <span class="card-date">2025-08-07</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Kushki concentra el 40% de sus ganancias globales en México y se posiciona como sexto adquirente del país</h3>
+      <p class="card-summary">Kushki reportó que durante el primer semestre de 2025 México concentró el 40% de sus ganancias totales, consolidándose como su mercado principal. La fintech ecuatoriana es actualmente el sexto adquirente por volumen de transacciones en México entre 14 participantes del mercado.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Kushki es un competidor directo de Ecart Pay en adquirencia en México. Su posicionamiento como sexto adquirente nacional con crecimiento acelerado indica una competencia creciente por cuota de mercado en el segmento de comercios digitales, el mismo nicho que opera Ecart Pay.</p>
+      </div>
+      <a class="read-link" href="https://www.fintechexpert.mx/p/kushki-crece-ganancias-mexico-2025" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Santander México / Mastercard</span>
+          <span class="card-date">2025-01-28</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Getnet lanza G Tapp en México: convierte dispositivos Android en terminales de pago</h3>
+      <p class="card-summary">Getnet, filial de Santander, lanzó G Tapp en México en alianza con American Express, Mastercard y Visa: una solución que transforma smartphones Android en terminales de pago (SoftPOS) sin necesidad de hardware adicional. La solución se desplegará en todo el país con el respaldo de las tres principales marcas de tarjetas.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Getnet es un competidor directo de Ecart Pay en adquirencia. El lanzamiento de SoftPOS (cobro por celular sin terminal física) representa una amenaza competitiva directa en el segmento de pequeños y medianos comercios, donde Ecart Pay también compite.</p>
+      </div>
+      <a class="read-link" href="https://www.santander.com.mx/ceb/2025/getnet-lanza-g-tapp-en-mexico.html" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.4s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Mexico Business News</span>
+          <span class="card-date">2026-01-19</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">México requiere diversidad de métodos de pago para definir ganadores del comercio en 2026</h3>
+      <p class="card-summary">Un análisis publicado por Mexico Business News señala que el boom del e-commerce en México hace que la diversidad de métodos de pago sea el factor determinante para los ganadores del comercio digital en 2026. El artículo destaca la presión sobre procesadores y adquirentes para ampliar su stack de métodos de pago.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Tendencia estructural que impacta directamente la propuesta de valor de adquirentes como Ecart Pay: la oferta de métodos de pago diversificados (SPEI, efectivo, BNPL, tarjeta) se convierte en ventaja competitiva crítica para retener y ganar comercios en 2026.</p>
+      </div>
+      <a class="read-link" href="https://mexicobusiness.news/tag/conekta" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+    </div>
+  </section>
+
+  <section id="fintech-pagos" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">⚡</span>
+        <h2 class="section-title">Fintech y Pagos</h2>
+        <span class="section-count">0 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">Error de rate limit: Error code: 429 - {'type': 'error', 'error': {'type': 'rate_limit_error', 'message': "This request would exceed your organization's rate limit of 10,000 input tokens per minute (org: 02adb0f4-4236-454</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      <p class="no-news">No se encontraron noticias para esta categoría.</p>
+    </div>
+  </section>
+
+  <section id="tendencias-latam" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">🌎</span>
+        <h2 class="section-title">Tendencias LATAM</h2>
+        <span class="section-count">4 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El ecosistema de pagos digitales y adquirencia en LATAM acelera su competencia en 2026, con actores consolidados como Getnet lanzando nuevas soluciones en México y un creciente foco en infraestructura tecnológica de procesamiento; Ecart Pay enfrenta un mercado más disputado que exige diferenciación en producto, precio y experiencia para comercios.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Latam Fintech</span>
+          <span class="card-date">2026-03-10</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">AS·NET presentará en Paytech Conf 2026 la infraestructura tecnológica detrás de los pagos digitales en LATAM</h3>
+      <p class="card-summary">AS·NET participará en Paytech Conf 2026 para exponer la infraestructura tecnológica que sostiene los pagos digitales en la región. El evento concentra a actores clave de la industria adquirente y de procesamiento de pagos en LATAM.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Es directamente relevante para Ecart Pay porque aborda la infraestructura de procesamiento y adquirencia en LATAM, el mismo espacio competitivo en el que opera. Representa una oportunidad de inteligencia de mercado y posicionamiento sectorial.</p>
+      </div>
+      <a class="read-link" href="https://www.latamfintech.co/articles/as-net-presentara-en-paytech-conf-2026-la-infraestructura-tecnologica-detras-de-los-pagos-digitales-en-latam" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Facephi</span>
+          <span class="card-date">2026-03-06</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Tendencias Fintech en LATAM 2026</h3>
+      <p class="card-summary">Análisis de las principales tendencias fintech que marcarán 2026 en América Latina, incluyendo pagos digitales, identidad, inclusión financiera y evolución regulatoria. Detalla los vectores de crecimiento del ecosistema de pagos en la región.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Permite a Ecart Pay anticipar movimientos del mercado adquirente y de pagos en México y LATAM, identificar segmentos de oportunidad y alinear su hoja de ruta estratégica con las tendencias dominantes.</p>
+      </div>
+      <a class="read-link" href="https://facephi.com/en/fintech-trends-in-latam/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Boomit</span>
+          <span class="card-date">2026-02-03</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Ecosistema Fintech LATAM 2026: Crecimiento y Desafíos</h3>
+      <p class="card-summary">Reporte sobre el estado actual y proyecciones del ecosistema fintech en LATAM para 2026, analizando crecimiento de usuarios, adopción de pagos digitales y principales desafíos regulatorios y de infraestructura. Incluye perspectivas de competitividad entre actores establecidos y nuevos entrantes.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Contextualiza el entorno competitivo en el que Ecart Pay opera como adquirente en México, útil para benchmarking regional y para entender la presión de nuevos competidores fintech en el espacio de pagos.</p>
+      </div>
+      <a class="read-link" href="https://boomit.us/fintech-latam/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Mastercard Newsroom</span>
+          <span class="card-date">2025-01-28</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Getnet lanza G Tapp en México: solución de pagos digitales con respaldo de Mastercard</h3>
+      <p class="card-summary">Getnet, competidor directo en adquirencia en México, lanzó G Tapp, una solución de pagos digitales que se desplegará a nivel nacional con el impulso de compañías líderes del sector financiero y el respaldo de Mastercard. El lanzamiento intensifica la competencia en el segmento de terminales y pagos para comercios.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Getnet es un competidor directo de Ecart Pay en el mercado adquirente mexicano. El lanzamiento de G Tapp representa una amenaza competitiva directa que Ecart Pay debe monitorear y considerar en su estrategia de producto y captación de comercios.</p>
+      </div>
+      <a class="read-link" href="https://www.mastercard.com/ve/es/news-and-trends/press/2025/january/getnet-lanza-g-tapp-en-mexico.html" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+    </div>
+  </section>
+
+  <section id="nuevas-tecnologias" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">🚀</span>
+        <h2 class="section-title">Nuevas Tecnologías de Pago</h2>
+        <span class="section-count">6 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El ecosistema de adquirencia en México enfrenta en 2026 una doble presión: regulatoria (nuevo marco de redes de medios de disposición y compresión de comisiones impulsada por Banxico y CNBV) y tecnológica (adopción masiva de NFC, tokenización y SoftPOS), lo que exige a los adquirentes como Ecart Pay acelerar su modernización de infraestructura y blindar sus márgenes con diferenciación en servicio y seguridad.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Inside PayTech</span>
+          <span class="card-date">2025-10-24</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">México redefine su ecosistema de pagos: nuevo marco regulatorio para adquirentes, emisores y fintechs</h3>
+      <p class="card-summary">México avanza en un nuevo marco regulatorio para redes de medios de disposición que amplía las facultades de supervisión de CNBV y Banxico, incluyendo revisión, modificación y sanciones ante incumplimientos. Se establece registro formal de redes y participantes con exigencias de continuidad operativa y seguridad de la información. El marco busca fomentar la interoperabilidad y competencia entre procesadores de pago nacionales.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Impacta directamente a Ecart Pay como adquirente, ya que el nuevo marco regula la operación de redes de pago con tarjetas, las obligaciones de registro y los estándares operativos que deberán cumplir los adquirentes en México.</p>
+      </div>
+      <a class="read-link" href="https://www.insidepaytech.com/noticias/nuevo-marco-regulatorio-redes-medios-de-disposicion-mexico-2025" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Expansión</span>
+          <span class="card-date">2025-11-21</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Bancos, CNBV y Banxico llegan a acuerdo para reducir comisiones de pago con tarjeta</h3>
+      <p class="card-summary">La Asociación de Bancos de México aceptó parcialmente la propuesta regulatoria de CNBV y Banxico para reducir de forma gradual las comisiones que cobran los adquirentes por pagos con tarjeta de crédito y débito. El acuerdo busca mejorar los costos del ecosistema de pagos para comercios y consumidores. La reducción sería implementada de manera escalonada bajo condiciones específicas.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Afecta directamente el modelo de negocio de Ecart Pay como adquirente, ya que la compresión de comisiones impacta en márgenes, estrategia de precios y competitividad frente a otros adquirentes como Clip, Getnet y MIT.</p>
+      </div>
+      <a class="read-link" href="https://expansion.mx/economia/2025/11/21/bancos-cnbv-banxico-acuerdo-comision-por-pagar-con-tarjeta" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Mobile Money LATAM</span>
+          <span class="card-date">2026-03-20</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">NFC en cajeros automáticos se acelera en México, Colombia y Argentina en 2026</h3>
+      <p class="card-summary">Bancos de México, Colombia y Argentina aceleran el despliegue de cajeros automáticos con tecnología NFC en 2026, el mismo sistema detrás de los pagos contactless con tarjetas y celulares. Esta expansión responde a la creciente adopción de billeteras digitales y pagos sin contacto en la región. La tendencia impulsa la modernización de la infraestructura de aceptación de pagos.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Relevante para Ecart Pay en tanto la expansión de NFC en puntos de contacto físico (cajeros, terminales) amplía el ecosistema de aceptación de pagos sin contacto, área en la que los adquirentes deben actualizar su infraestructura y oferta de valor.</p>
+      </div>
+      <a class="read-link" href="https://noticias.mobilemoneylatam.com/nfc-en-los-cajeros-automaticos/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="alta" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Ecosistema Startup</span>
+          <span class="card-date">2026-02-28</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Pagos sin contacto en México: 30% de compras ya son NFC en 2026</h3>
+      <p class="card-summary">El 30% de las compras en México ya se realizan mediante tecnología NFC en 2026, con billeteras digitales desplazando al efectivo. Los expertos recomiendan incorporar tokenización y SoftPOS para aceptar pagos NFC desde celulares como estrategia competitiva para comercios. La tendencia representa una aceleración significativa en la adopción de pagos digitales en el país.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Ecart Pay como adquirente debe responder a esta adopción masiva de NFC actualizando su portafolio de terminales, habilitando SoftPOS y asegurando compatibilidad con tokenización para mantener competitividad frente a Clip y otros jugadores.</p>
+      </div>
+      <a class="read-link" href="https://ecosistemastartup.com/pagos-sin-contacto-mexico-30-de-compras-ya-son-nfc-en-2026/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.4s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Comercio Perú (Columna de Opinión Visa)</span>
+          <span class="card-date">2026-02-09</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Predicciones de pagos para América Latina 2026: IA, tokenización y pagos en tiempo real</h3>
+      <p class="card-summary">Visa identifica como tendencias clave para LATAM en 2026 el comercio agéntico impulsado por IA, la tokenización para reducir el riesgo de manejo de datos de pago, y la expansión de pagos en tiempo real. Más de dos tercios de los consumidores ya utilizan IA para guiar sus compras, acelerando la necesidad de infraestructuras de pago seguras y automatizadas. La tokenización se posiciona como el estándar de seguridad dominante para transacciones digitales.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">La tokenización es un estándar que los adquirentes como Ecart Pay deben adoptar para cumplir con expectativas de redes como Visa/Mastercard y ofrecer seguridad competitiva; los pagos en tiempo real también son relevantes para su propuesta de valor hacia comercios.</p>
+      </div>
+      <a class="read-link" href="https://elcomercio.pe/opinion/columnistas/las-principales-predicciones-de-pagos-que-transformaran-america-latina-y-el-caribe-en-el-2026-de-la-ia-a-los-pagos-en-tiempo-real-noticia/" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+
+    <div class="news-card" data-nivel="media" style="animation-delay: 0.5s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Fintech México</span>
+          <span class="card-date">2025-12-01</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Fintoc obtiene autorización IFPE en México en contexto regulatorio restrictivo</h3>
+      <p class="card-summary">Fintoc obtuvo autorización como Institución de Fondos de Pago Electrónico (IFPE) en México, en un contexto donde solo se han emitido dos nuevas licencias en todo 2025 sobre un total de 87 IFPEs reguladas. La empresa operará bajo supervisión de CNBV y Banxico, lo que refuerza la tendencia de consolidación del sector fintech en México. El caso evidencia el alto escrutinio regulatorio actual para nuevos entrantes al ecosistema de pagos.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para Ecart Pay:</span>
+        <p class="relevance-text">Señala el endurecimiento del entorno regulatorio para actores de pagos en México y la dificultad de nuevos competidores para obtener licencias, lo que puede ser una barrera de entrada favorable para operadores ya establecidos como Ecart Pay.</p>
+      </div>
+      <a class="read-link" href="https://www.fintechmexico.org/notices/fintoc-avanza-en-su-expansion-en-mexico-tras-obtener-autorizacion-ifpe" target="_blank" rel="noopener noreferrer">Leer nota completa →</a>
+    </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    Generado automáticamente por Ecart Pay News Agent · claude-sonnet-4-6 · 15 de mayo de 2026
+  </footer>
+
+  <script>
+    function filterCards(nivel) {
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.filter === nivel) btn.classList.add('active');
+      });
+
+      // Show/hide cards
+      document.querySelectorAll('.news-card').forEach(card => {
+        if (nivel === 'all' || card.dataset.nivel === nivel) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Update section counts to reflect visible cards
+      document.querySelectorAll('.section').forEach(section => {
+        const visible = section.querySelectorAll('.news-card:not(.hidden)').length;
+        const countEl = section.querySelector('.section-count');
+        if (countEl) {
+          const total = section.querySelectorAll('.news-card').length;
+          countEl.textContent = nivel === 'all' ? `${total} noticias` : `${visible} / ${total} noticias`;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
