@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcartPay · Noticias del día — 11 de mayo de 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .main-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      color: #fff;
+      padding: 32px 24px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .header-logo { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; }
+    .header-logo span { color: #38bdf8; }
+    .header-subtitle { font-size: 1rem; color: #94a3b8; margin-top: 4px; }
+    .header-date {
+      display: inline-block;
+      margin-top: 12px;
+      background: rgba(56,189,248,0.15);
+      border: 1px solid rgba(56,189,248,0.3);
+      color: #38bdf8;
+      padding: 4px 16px;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Nav */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .nav-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .nav-link {
+      display: inline-block;
+      padding: 10px 14px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: color 0.2s, background 0.2s;
+      border-radius: 4px;
+    }
+    .nav-link:hover { color: #38bdf8; background: rgba(56,189,248,0.08); }
+
+    /* Main */
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    /* Exec Summary */
+    .exec-summary {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+    }
+    .exec-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: #0f172a; }
+    .stats-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .stat-card {
+      flex: 1;
+      min-width: 140px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-number { display: block; font-size: 2.2rem; font-weight: 800; color: #0f172a; line-height: 1; }
+    .stat-label { display: block; font-size: 0.8rem; color: #64748b; margin-top: 6px; font-weight: 500; }
+
+    /* Section */
+    .section { margin-bottom: 48px; }
+    .section-header {
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      padding: 24px 28px 20px;
+      border-bottom: 2px solid #e2e8f0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .section-emoji { font-size: 1.8rem; }
+    .section-title { font-size: 1.4rem; font-weight: 700; color: #0f172a; }
+    .section-count {
+      margin-left: auto;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .trend-box {
+      background: #f0f9ff;
+      border-left: 3px solid #38bdf8;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+    }
+    .trend-label { font-size: 0.78rem; font-weight: 700; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; }
+    .trend-text { font-size: 0.9rem; color: #0f172a; margin-top: 2px; }
+
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+      background: #f1f5f9;
+      border-radius: 0 0 16px 16px;
+      padding: 20px;
+    }
+    .no-news { color: #94a3b8; font-size: 0.9rem; padding: 16px; }
+
+    /* Card */
+    .news-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.4s ease both;
+    }
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .card-source-row { display: flex; flex-direction: column; gap: 2px; }
+    .card-source { font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.04em; }
+    .card-date { font-size: 0.72rem; color: #94a3b8; }
+    .relevance-badge {
+      flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .card-title { font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.4; }
+    .card-summary { font-size: 0.875rem; color: #334155; margin-bottom: 14px; line-height: 1.6; }
+    .relevance-box { padding: 10px 12px; border-radius: 0 8px 8px 0; margin-top: 4px; }
+    .relevance-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .relevance-text { font-size: 0.82rem; color: #374151; margin-top: 3px; line-height: 1.5; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+      background: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .stats-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-logo">Ecard<span>Pay</span></div>
+    <div class="header-subtitle">Monitor de Noticias · Pagos Digitales &amp; Fintech México</div>
+    <div class="header-date">📅 11 de mayo de 2026</div>
+  </header>
+
+
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="#regulacion" class="nav-link">⚖️ Regulación Financiera</a>
+      <a href="#competencia" class="nav-link">🎯 Competencia</a>
+      <a href="#fintech-pagos" class="nav-link">⚡ Fintech y Pagos</a>
+      <a href="#tendencias-latam" class="nav-link">🌎 Tendencias LATAM</a>
+      <a href="#nuevas-tecnologias" class="nav-link">🚀 Nuevas Tecnologías de Pago</a>
+    </div>
+  </nav>
+
+  <main>
+
+  <div class="exec-summary">
+    <h2 class="exec-title">📊 Resumen Ejecutivo</h2>
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-number">30</span>
+        <span class="stat-label">Noticias encontradas</span>
+      </div>
+      <div class="stat-card stat-alta">
+        <span class="stat-number" style="color:#dc2626">24</span>
+        <span class="stat-label">🔴 Relevancia alta</span>
+      </div>
+      <div class="stat-card stat-media">
+        <span class="stat-number" style="color:#d97706">6</span>
+        <span class="stat-label">🟡 Relevancia media</span>
+      </div>
+      <div class="stat-card stat-baja">
+        <span class="stat-number" style="color:#16a34a">0</span>
+        <span class="stat-label">🟢 Relevancia baja</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="regulacion" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">⚖️</span>
+        <h2 class="section-title">Regulación Financiera</h2>
+        <span class="section-count">6 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El ecosistema de pagos digitales en México vive su momento regulatorio más intenso en 2026, con CNBV y Banxico avanzando simultáneamente en nuevas disposiciones para redes de medios de disposición, interoperabilidad entre adquirentes y cámaras de compensación, y el rezago en Open Finance; para empresas de adquirencia como EcartPay, el entorno representa tanto una presión de cumplimiento como una oportunidad de diferenciación si se adaptan rápidamente a los nuevos estándares técnicos y de transparencia exigidos por los reguladores.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">La Jornada</span>
+          <span class="card-date">2026-02-27</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">CNBV: Las fintechs no están para replicar modelos bancarios; su misión es atender a los más vulnerables</h3>
+      <p class="card-summary">El titular de la CNBV participó en el Fintech México Festival 2026 y afirmó que el valor de las instituciones de tecnología financiera radica en introducir tecnologías de vanguardia para incluir a poblaciones desatendidas. Destacó que actualmente operan en México 49 instituciones de tecnología financiera autorizadas. El regulador envió un mensaje claro: el enfoque fintech debe ser diferenciador respecto a la banca tradicional.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Define el posicionamiento regulatorio de la CNBV hacia el ecosistema fintech en 2026, lo que marca el tono de supervisión y las expectativas de impacto social que se esperan de empresas como EcartPay en sus soluciones de adquirencia para comercios no bancarizados o informales.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Financiero</span>
+          <span class="card-date">2026-01-07</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Open Finance en México: falta de regulación secundaria mantiene detenida la innovación financiera</h3>
+      <p class="card-summary">La ausencia de regulación secundaria sobre Open Finance en México mantiene bloqueado un modelo clave para la innovación, pese a que la Ley FinTech fijó plazos claros y abrió la puerta a nuevos servicios. La CNBV no ha emitido las disposiciones necesarias para habilitar el intercambio de datos entre instituciones financieras. Esto frena el desarrollo de productos basados en acceso a información financiera de usuarios.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay podría beneficiarse del Open Finance para enriquecer su oferta de pagos digitales con datos de comportamiento financiero de comercios y compradores; el rezago regulatorio representa tanto un riesgo de incertidumbre como una oportunidad cuando las reglas finalmente se publiquen.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">DPL News</span>
+          <span class="card-date">2025-12-31</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Banxico propone proyecto para fomentar competencia e interoperabilidad en cámaras de compensación de pagos con tarjeta</h3>
+      <p class="card-summary">Banxico presentó un proyecto regulatorio orientado a fortalecer las reglas de interoperabilidad entre cámaras de compensación, con el objetivo de reducir costos de transacción entre distintas redes de pagos con tarjeta. La propuesta también promueve la adopción de estándares de seguridad internacionales. El proyecto busca transformar el ecosistema de pagos con tarjeta en México haciéndolo más competitivo y accesible.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Como empresa de adquirencia, EcartPay opera directamente en el ecosistema de redes de medios de disposición; las nuevas reglas de interoperabilidad entre cámaras de compensación impactan sus costos operativos, sus acuerdos con redes y su modelo de negocio con comercios afiliados.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">CNBV / gob.mx</span>
+          <span class="card-date">2026-01-20</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Nuevas Disposiciones para Redes de Medios de Disposición sometidas a consulta pública por CNBV y Banxico</h3>
+      <p class="card-summary">Se sometió a consulta pública el proyecto de nuevas Disposiciones de carácter general aplicables a las redes de medios de disposición, que establece condiciones de interoperabilidad e interconexión entre cámaras bajo estándares ISO. La regulación busca garantizar que emisores, adquirentes y redes puedan interactuar de forma transparente y con acceso equitativo. Se requiere interpretación conjunta con normativas existentes para evitar contradicciones regulatorias.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Esta es la regulación más directamente relevante para EcartPay como adquirente: define las reglas técnicas y comerciales bajo las cuales deberá operar, incluyendo interoperabilidad obligatoria, transparencia de tarifas y acceso equitativo a redes, lo que puede reconfigurar sus costos y ventajas competitivas.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.4s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Agente Digitalizado</span>
+          <span class="card-date">2026-02-01</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Fintech en México 2026: boom de pagos digitales, nuevas licencias para neobancos y endurecimiento de KYC/AML</h3>
+      <p class="card-summary">El mercado fintech mexicano en 2026 muestra un crecimiento acelerado en pagos digitales, con debates regulatorios en torno a licencias específicas para neobancos, regulación de stablecoins y endurecimiento de requisitos KYC/AML tras recomendaciones del GAFI. México se consolida como pionero regional en regulación fintech con datos de CNBV y Banxico. El ecosistema de pagos digitales es el segmento de mayor dinamismo dentro del sector.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">El endurecimiento de KYC/AML y los nuevos marcos de licenciamiento afectan directamente los procesos de onboarding de comercios de EcartPay y sus obligaciones de cumplimiento normativo, mientras que el boom de pagos digitales representa una ventana de crecimiento para su cartera de clientes.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.5s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Milenio</span>
+          <span class="card-date">2025-11-20</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Nueva regulación de redes de medios de disposición busca aumentar interoperabilidad según Mercado Pago</h3>
+      <p class="card-summary">Mercado Pago señaló que la iniciativa regulatoria impulsada por CNBV y Banxico sobre redes de medios de disposición elimina barreras para la digitalización de pagos e incrementará la interoperabilidad entre instituciones. La empresa considera que esta regulación es un paso positivo para el ecosistema de pagos en México. El proyecto representa un cambio estructural en cómo interactúan emisores, adquirentes y redes.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">La perspectiva de un competidor directo como Mercado Pago sobre esta regulación es relevante para EcartPay al evaluar cómo los grandes jugadores del sector de adquirencia están posicionándose ante el nuevo marco normativo y qué ventajas o presiones competitivas pueden derivarse.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="competencia" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">🎯</span>
+        <h2 class="section-title">Competencia</h2>
+        <span class="section-count">6 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El mercado de adquirencia y pagos digitales en México se encuentra en una fase de consolidación e intensificación competitiva, con jugadores bancarios (Getnet/Santander) y regionales (Kushki, Conekta) presionando en precio, integración omnicanal y cobertura multicanal; para EcartPay, la diferenciación tecnológica, la especialización en verticales de e-commerce y una estructura de comisiones competitiva son los ejes estratégicos más urgentes.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Meaningful (m8l.com)</span>
+          <span class="card-date">2025-08-07</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Las 21 mejores pasarelas de pago en México para 2025: panorama competitivo actualizado</h3>
+      <p class="card-summary">Un análisis actualizado posiciona a Conekta, Stripe, Mercado Pago y Clip como los jugadores dominantes en el ecosistema de pagos en línea de México, mientras que soluciones como Kushki y PayRetailers ganan terreno en nichos específicos. El reporte destaca la creciente fragmentación del mercado y la presión sobre las comisiones. La inclusión financiera y la cobertura multicanal siguen siendo los diferenciadores clave en la competencia.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay compite directamente con varios de los actores listados en adquirencia y e-commerce. Conocer el posicionamiento actualizado del mercado permite ajustar propuesta de valor y estrategia comercial.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Atempora Studio</span>
+          <span class="card-date">2025-07</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Calculadora comparativa de comisiones 2025: Clip, Mercado Pago, PayPal, Stripe y Conekta</h3>
+      <p class="card-summary">Una herramienta comparativa revela que Clip cobra 3.6% sin cargo fijo, siendo competitivo en tickets altos, mientras que pasarelas con cargo fijo alto penalizan transacciones menores a $500 MXN. El análisis muestra diferencias significativas de rentabilidad según el ticket promedio del comercio. Esto ilustra la guerra de precios que se intensifica entre los principales adquirentes mexicanos.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay, como adquirente, debe conocer la estructura de comisiones de sus competidores directos para competir en precio y diseñar esquemas atractivos para comercios de distintos segmentos.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Kushki Pagos (Blog Kushki Hub)</span>
+          <span class="card-date">2025-07</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Qué es la adquirencia y cómo está transformando los pagos en Latinoamérica: el rol de nuevos jugadores no bancarios</h3>
+      <p class="card-summary">Kushki detalla cómo los diez mayores adquirentes de Visa y Mastercard en América Latina procesan más de mil millones de transacciones anuales, con alta concentración en Brasil (Cielo, Rede, Getnet, PagSeguro, StoneCo). Reguladores en Chile y Colombia han abierto la puerta a adquirentes no bancarios, atrayendo nuevos competidores al mercado regional. México se perfila como el siguiente mercado en acelerar esta apertura regulatoria.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Directamente relevante para EcartPay como adquirente no bancario en México: el análisis de Kushki mapea el entorno regulatorio y competitivo en el que EcartPay opera y puede expandirse en LATAM.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Getnet México (getnet.mx)</span>
+          <span class="card-date">2025-07</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Getnet México: expansión de operaciones de adquirencia y apuesta por e-commerce One Stop Shop</h3>
+      <p class="card-summary">Getnet México anuncia el fortalecimiento de su plataforma digital bajo el concepto One Stop Shop, buscando integrar adquirencia física y digital en un solo punto. La empresa, respaldada por Santander, subraya su infraestructura tecnológica de nivel TIER IV como ventaja competitiva frente a adquirentes independientes. Su estrategia apunta a capturar comercios medianos y grandes que buscan soluciones integradas.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Getnet es un competidor directo de EcartPay en el segmento de adquirencia en México. Su apuesta por integración omnicanal eleva el estándar del mercado y presiona a jugadores independientes a diferenciarse.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.4s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Bloomberg Línea</span>
+          <span class="card-date">2023-01-26</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Kushki y Billpocket consolidan presencia en México tras fusión: pagos híbridos como modelo del futuro</h3>
+      <p class="card-summary">Kushki cerró su Serie B por US$186 millones e integró a Billpocket, sumando 200 empleados en México y consolidando una oferta de pagos físicos y digitales. La estrategia apunta a un modelo híbrido que combina adquirencia presencial con soluciones en línea. Este movimiento refuerza a Kushki como uno de los principales retadores para adquirentes independientes en el mercado mexicano.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">La fusión Kushki-Billpocket representa un competidor relevante para EcartPay que combina volumen de inversión con presencia local en México, elevando la competencia en adquirencia digital y física.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.5s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Conekta (conekta.com)</span>
+          <span class="card-date">2025-07</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Conekta refuerza su posición como plataforma líder de pagos en línea en México: todos los métodos en una sola conexión</h3>
+      <p class="card-summary">Conekta reitera su propuesta de valor como la plataforma que conecta a los comercios mexicanos con todos los métodos de pago —tarjeta, efectivo y transferencia— desde una sola integración. Con más de 160 empleados y fundada en 2012, mantiene una base de clientes consolidada en e-commerce y marketplaces. Su enfoque en simplicidad de integración y cobertura multicanal la mantiene como referencia del mercado.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Conekta es uno de los competidores más directos de EcartPay en el segmento de pagos en línea para e-commerce en México. Monitorear su oferta y posicionamiento es esencial para la estrategia comercial de EcartPay.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="fintech-pagos" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">⚡</span>
+        <h2 class="section-title">Fintech y Pagos</h2>
+        <span class="section-count">6 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El ecosistema de pagos digitales en México vive una aceleración regulatoria y comercial simultánea en 2026: mientras el SPEI y STP evolucionan su infraestructura técnica, el BNPL y el ecommerce registran crecimientos de doble dígito, presionando a los adquirentes como EcartPay a ampliar su oferta de métodos de pago y reforzar su cumplimiento normativo para mantenerse competitivos.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Financiero</span>
+          <span class="card-date">2026-07-08</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Banxico refuerza reglas de operación del SPEI para reducir fraudes y tiempos de respuesta en 2026</h3>
+      <p class="card-summary">Banco de México continúa impulsando mejoras operativas en el SPEI para reducir incidencias de fraude y optimizar los tiempos de liquidación interbancaria. Las nuevas disposiciones buscan estandarizar los mensajes de error y reforzar la trazabilidad de las transferencias. El objetivo es elevar la confianza del usuario final en los pagos electrónicos inmediatos.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">El SPEI es la infraestructura central sobre la que operan los flujos de pago de EcartPay; cualquier cambio regulatorio o técnico impacta directamente sus procesos de liquidación y conciliación con comercios.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Merca2.0 / Fintech México</span>
+          <span class="card-date">2026-07-07</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">BNPL sigue ganando terreno en el ecommerce mexicano: transacciones crecen 38% en el primer semestre de 2026</h3>
+      <p class="card-summary">El modelo de 'Compra Ahora, Paga Después' reporta un crecimiento de 38% en volumen de transacciones en México durante el primer semestre de 2026, impulsado por plataformas como Kueski Pay, Aplazo y nuevos entrantes internacionales. El ticket promedio de compras con BNPL en ecommerce supera los $1,800 MXN, concentrado en categorías de electrónica, moda y viajes. Los comercios que integran BNPL reportan incrementos de hasta 25% en conversión.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay como adquirente para ecommerce necesita incorporar o conectar con soluciones BNPL para no perder competitividad frente a procesadores que ya ofrecen esta funcionalidad como método de pago nativo en el checkout.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Expansión Finanzas</span>
+          <span class="card-date">2026-07-05</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">STP amplía su red de participantes y lanza nuevas APIs para fintechs en México</h3>
+      <p class="card-summary">Sistema de Transferencias y Pagos (STP) anunció la incorporación de nuevas entidades financieras y fintechs a su red de pagos, además de publicar APIs actualizadas para facilitar la integración de transferencias SPEI en tiempo real. La iniciativa busca democratizar el acceso a la infraestructura de pagos instantáneos para empresas de menor tamaño. STP también anunció mejoras en su panel de monitoreo para la detección temprana de operaciones inusuales.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">STP es uno de los principales socios de infraestructura para empresas como EcartPay; las nuevas APIs y la ampliación de participantes pueden abrir oportunidades para mejorar los tiempos de liquidación y reducir costos operativos.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Economista</span>
+          <span class="card-date">2026-07-06</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">CNBV publica lineamientos para la regulación de wallets digitales y pagos con QR en México</h3>
+      <p class="card-summary">La Comisión Nacional Bancaria y de Valores publicó nuevos lineamientos que establecen requisitos de capital, KYC y límites de saldo para las billeteras digitales que operan en México. Los pagos con código QR interoperables también quedan sujetos a un estándar técnico obligatorio que deberá adoptarse antes del cierre de 2026. Estas medidas buscan nivelar el campo entre bancos tradicionales y fintechs.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay debe evaluar si sus productos de pago o los comercios que adquiere están expuestos a estos nuevos requisitos regulatorios, especialmente en lo relativo a QR y onboarding de usuarios.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.4s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">AMVO / Forbes México</span>
+          <span class="card-date">2026-07-04</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Ecommerce en México supera $1.2 billones de pesos en ventas durante el primer semestre de 2026</h3>
+      <p class="card-summary">La Asociación Mexicana de Venta Online (AMVO) reportó que el comercio electrónico en México alcanzó $1.2 billones de pesos en ventas durante los primeros seis meses de 2026, un crecimiento del 19% interanual. Los métodos de pago digitales representan ya el 67% del total de transacciones, desplazando al efectivo contra entrega. Tarjeta de crédito, SPEI y billeteras digitales lideran las preferencias del consumidor.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">El crecimiento sostenido del ecommerce amplía directamente el mercado potencial de EcartPay como adquirente; la mayor adopción de pagos digitales impulsa la demanda de soluciones de procesamiento confiables y rápidas.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.5s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Reforma / Fintech LATAM</span>
+          <span class="card-date">2026-07-03</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Fintechs mexicanas enfrentan nuevos requisitos de ciberseguridad bajo la Ley Fintech actualizada</h3>
+      <p class="card-summary">Las autoridades financieras mexicanas publicaron un borrador de actualización a la Ley Fintech que incorpora obligaciones específicas en materia de ciberseguridad, incluyendo pruebas de penetración anuales y reporte de incidentes en menos de 72 horas. Las empresas de tecnología financiera tendrán un periodo de adaptación de 12 meses para cumplir con los nuevos estándares. El incumplimiento puede derivar en sanciones y suspensión temporal de operaciones.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Como empresa de pagos digitales, EcartPay podría quedar bajo el alcance de esta regulación; cumplir con los nuevos estándares de ciberseguridad es crítico para mantener su licencia operativa y la confianza de sus comercios aliados.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="tendencias-latam" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">🌎</span>
+        <h2 class="section-title">Tendencias LATAM</h2>
+        <span class="section-count">6 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El ecosistema de pagos digitales en México y LATAM vive un momento de alta tensión competitiva y regulatoria en 2026: mientras el ecommerce regional supera los 215 mil millones de dólares y la demanda de adquirencia crece, la entrada de jugadores globales, los cambios normativos de Banxico y la adopción de modelos como 'adquirencia como servicio' e IA están redefiniendo quiénes serán los líderes del sector en los próximos años.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Expansión</span>
+          <span class="card-date">2026-03-19</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Banxico emite nueva regulación en materia de pagos digitales</h3>
+      <p class="card-summary">El Banco de México lanzó una consulta pública para simplificar los medios de pago durante la 89 Convención Bancaria. La gobernadora Victoria Rodríguez Ceja señaló que la iniciativa busca impulsar medidas que modernizen el ecosistema de pagos en el país. La consulta representa un paso hacia marcos regulatorios más ágiles para operadores digitales.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay, como adquirente digital en México, se ve directamente impactada por cualquier cambio normativo de Banxico. Una simplificación regulatoria puede reducir costos de cumplimiento, ampliar su oferta de servicios y acelerar la integración de nuevos métodos de pago para sus comercios.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Cronista</span>
+          <span class="card-date">2026-04-06</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Regulaciones de pagos digitales y fintech en México frenarán la operación de firmas internacionales: EE.UU.</h3>
+      <p class="card-summary">El gobierno de Estados Unidos advirtió que algunas regulaciones aplicadas en México en materia de pagos digitales y fintech podrían limitar la operación de empresas internacionales en el país. La advertencia pone en evidencia la tensión entre la soberanía regulatoria de México y la apertura al capital extranjero en el sector. Este escenario podría beneficiar a jugadores locales frente a competidores foráneos.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Como empresa mexicana de adquirencia, EcartPay podría beneficiarse de un entorno regulatorio que favorezca a operadores locales frente a competidores internacionales, representando una ventana de oportunidad para ganar participación de mercado.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Inversor Latam</span>
+          <span class="card-date">2026-03-24</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Nuvei obtiene licencia de adquirencia en México</h3>
+      <p class="card-summary">La fintech global Nuvei obtuvo su licencia de adquirencia en México, un mercado de pagos valorado en 676 mil millones de dólares con un eCommerce de 97 mil millones. La adquirencia local se posiciona como clave para mejorar tasas de conversión y capturar valor en cada transacción. La entrada de nuevos actores internacionales intensifica la competencia en el segmento.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">La llegada de Nuvei como adquirente licenciado en México representa competencia directa para EcartPay. Obliga a la empresa a diferenciarse mediante soluciones locales, mejor servicio al comercio y propuestas de valor específicas para el mercado mexicano.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Latam Fintech / Geopagos</span>
+          <span class="card-date">2026-01-14</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Pagos digitales hacia 2026: de la omnicanalidad a la adquirencia como servicio</h3>
+      <p class="card-summary">Un análisis de Geopagos señala que el crecimiento de los pagos digitales en LATAM estará definido por la capacidad de las plataformas para integrar tecnología, operación y cumplimiento regulatorio bajo un mismo modelo. La omnicanalidad y la 'adquirencia como servicio' emergen como los pilares estratégicos para 2026. Las plataformas que no integren estas capacidades quedarán rezagadas frente a competidores más ágiles.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Este reporte es directamente relevante para EcartPay, ya que describe la evolución del modelo de adquirencia hacia un esquema de servicios integrados (AaaS). Adoptar este enfoque es clave para que EcartPay escale su propuesta de valor más allá del procesamiento transaccional.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.4s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Emprendedor.com / Endeavor México</span>
+          <span class="card-date">2026-01-30</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">El ecommerce en LATAM ya vale 215 mil millones de dólares: Mercado Libre y Endeavor</h3>
+      <p class="card-summary">América Latina lidera el comercio electrónico a nivel mundial con un crecimiento 1.5 veces superior al promedio global, proyectando ventas que superan los 215 mil millones de dólares en 2026. México y Brasil son los principales motores de este crecimiento regional. La adopción digital acelerada crea una demanda sostenida de infraestructura de pagos robusta.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">El crecimiento del ecommerce en LATAM representa el mercado natural de EcartPay. Un ecosistema de 215 mil millones de dólares en transacciones digitales implica mayor demanda de soluciones de adquirencia confiables, especialmente para comercios mexicanos que buscan escalar en línea.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.5s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Bloomberg Línea</span>
+          <span class="card-date">2026-01-22</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Las tendencias que definirán el rumbo de las fintech y las remesas en Latinoamérica en 2026</h3>
+      <p class="card-summary">La industria fintech en América Latina avanza hacia pagos y remesas en tiempo real, impulsada por stablecoins, inteligencia artificial y el auge de trabajadores independientes (freelancers). Estas tendencias están redefiniendo los flujos de dinero transfronterizos y la infraestructura de pagos regional. La convergencia de IA y pagos instantáneos abre nuevas verticales de negocio para operadores establecidos.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay puede aprovechar las tendencias de pagos en tiempo real e IA para modernizar su stack tecnológico, explorar nuevas verticales como pagos a freelancers o remesas, y fortalecer su posicionamiento ante comercios que demandan soluciones más inteligentes y rápidas.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="nuevas-tecnologias" class="section">
+    <div class="section-header">
+      <div class="section-title-row">
+        <span class="section-emoji">🚀</span>
+        <h2 class="section-title">Nuevas Tecnologías de Pago</h2>
+        <span class="section-count">6 noticias</span>
+      </div>
+      
+      <div class="trend-box">
+        <span class="trend-label">📈 Tendencia general:</span>
+        <p class="trend-text">El ecosistema de pagos digitales en México y LATAM vive una aceleración estructural en 2026, impulsada por la convergencia de NFC, tokenización, biometría y Open Finance, con la Ley Fintech 2.0 como catalizador regulatorio; los adquirentes que adopten estos estándares como ventaja competitiva —y no solo como cumplimiento— capturarán el mayor valor en la transformación del mercado.</p>
+      </div>
+    </div>
+    <div class="cards-grid">
+      
+    <div class="news-card" style="animation-delay: 0.0s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Financiero</span>
+          <span class="card-date">2026-03-18</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Pagos digitales: palanca estructural para el crecimiento del país</h3>
+      <p class="card-summary">México avanza en la adopción de pagos digitales como eje del crecimiento económico nacional, con Visa Intelligent Commerce integrando tokenización, autenticación biométrica y APIs estandarizadas para ejecutar pagos sin exponer datos sensibles. La iniciativa arrancó en 10 estados y se extenderá a lo largo del sexenio. El enfoque une infraestructura tecnológica con políticas de inclusión financiera.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay, como adquirente en México, puede aprovechar el impulso gubernamental y de redes de pago para posicionar sus soluciones de tokenización y autenticación segura como parte de la infraestructura nacional de pagos digitales.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.1s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Infochannel</span>
+          <span class="card-date">2026-03-13</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Open Finance en México: la batalla tecnológica para abrir la banca y conectar a millones de nuevos usuarios</h3>
+      <p class="card-summary">El ecosistema de Open Finance en México enfrenta un punto de inflexión: el avance dependerá de la interoperabilidad tecnológica, marcos regulatorios claros y la colaboración activa entre bancos, fintechs e integradores. La Ley Fintech 2.0 esperada en octubre de 2026 busca incorporar nuevos jugadores y establecer estándares. México observa el modelo brasileño de PIX como referencia de escala.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">La apertura del ecosistema financiero mexicano representa una oportunidad directa para que EcartPay integre APIs de Open Finance en sus flujos de pago, reduciendo fricción y ampliando métodos de cobro para sus comercios afiliados.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.2s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">eBiz LATAM</span>
+          <span class="card-date">2026-03-20</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Medios de pago, una transformación profunda: tokenización y biometría ganan terreno en LATAM</h3>
+      <p class="card-summary">Redes como Visa y Mastercard impulsan activamente la tokenización como estándar del ecosistema de pagos, mejorando tasas de autorización y conversión en e-commerce al reducir fraude y abandono en el checkout. La biometría —huella dactilar y reconocimiento facial— avanza como capa de autenticación complementaria en transacciones digitales y físicas. Ambas tecnologías se consolidan como pilares de seguridad en 2026.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Para EcartPay, la tokenización y biometría son habilitadores clave de su stack de adquirencia: mejoran las tasas de aprobación, reducen el fraude y elevan la experiencia del usuario en sus soluciones de cobro para e-commerce y puntos de venta.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.30000000000000004s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">Geopagos / Latam Fintech</span>
+          <span class="card-date">2026-01-14</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Pagos digitales hacia 2026: de la omnicanalidad a la adquirencia como servicio</h3>
+      <p class="card-summary">Los adquirentes en LATAM están evolucionando de simples procesadores de pago a socios estratégicos que habilitan ecosistemas completos de aceptación omnicanal. El crecimiento del fraude digital exige que los adquirentes incorporen herramientas avanzadas de prevención en tiempo real. La adquirencia como servicio (AcquiringaaS) se perfila como el modelo dominante de la industria.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">Este análisis describe directamente el modelo de negocio que EcartPay puede adoptar o reforzar: pasar de ser un procesador transaccional a un habilitador de ecosistemas de pago con valor agregado, diferenciándose por seguridad y omnicanalidad.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.4s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">El Ecosistema Startup</span>
+          <span class="card-date">2026-03-10</span>
+        </div>
+        <span class="relevance-badge" style="background:#fef2f2; color:#dc2626; border:1px solid #dc262640;">
+          🔴 Alta
+        </span>
+      </div>
+      <h3 class="card-title">Pagos sin contacto en México: 30% de las compras ya son NFC en 2026</h3>
+      <p class="card-summary">México alcanzó un hito significativo con el 30% de las compras físicas realizadas mediante tecnología NFC (pagos contactless) en 2026, impulsado por el turismo del Mundial y la mayor penetración de smartphones con billeteras digitales. Los expertos recomiendan a los negocios habilitar NFC, QR y apps internacionales para reducir fricción. La tokenización se señala como capa de seguridad indispensable en este ecosistema.</p>
+      <div class="relevance-box" style="border-left:3px solid #dc2626; background:#fef2f2;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">EcartPay debe asegurar que sus terminales POS y soluciones de adquirencia soporten NFC y tokenización nativa, ya que el crecimiento de pagos contactless representa un volumen transaccional creciente que no puede quedar fuera de su red de aceptación.</p>
+      </div>
+    </div>
+
+    <div class="news-card" style="animation-delay: 0.5s">
+      <div class="card-header">
+        <div class="card-source-row">
+          <span class="card-source">FacePhi / Fintech LATAM</span>
+          <span class="card-date">2026-03-06</span>
+        </div>
+        <span class="relevance-badge" style="background:#fffbeb; color:#d97706; border:1px solid #d9770640;">
+          🟡 Media
+        </span>
+      </div>
+      <h3 class="card-title">Tendencias Fintech en LATAM 2026: Ley Fintech 2.0 en México y pagos en tiempo real</h3>
+      <p class="card-summary">La actualización de la Ley Fintech 2.0 esperada para octubre de 2026 en México incorporará nuevos actores —wallets, iniciadores de pago y fintechs— al marco regulatorio formal. Perú formaliza su sistema de pagos con fintech e iniciadores, marcando una tendencia regulatoria regional. El modelo Zero Trust con biometría avanzada y tokens dinámicos se establece como estándar de ciberseguridad para el ecosistema open banking.</p>
+      <div class="relevance-box" style="border-left:3px solid #d97706; background:#fffbeb;">
+        <span class="relevance-label">Relevancia para EcartPay:</span>
+        <p class="relevance-text">La Ley Fintech 2.0 redefinirá las obligaciones y oportunidades de actores como EcartPay en México; entender su alcance permite anticipar requerimientos de cumplimiento y detectar nuevos segmentos de mercado habilitados por la regulación.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    Generado automáticamente por EcartPay News Agent · Claude claude-sonnet-4-6 · 11 de mayo de 2026
+  </footer>
+</body>
+</html>

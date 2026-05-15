@@ -3,14 +3,17 @@ name: Radar Semanal Ecart Pay
 on:
   schedule:
     - cron: '0 12 * * 1'   # Lunes 12:00 UTC = 6:00 AM Monterrey (CST)
-  workflow_dispatch:         # Permite disparo manual desde la UI de GitHub
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # Compatibilidad Node.js 24
 
 jobs:
   generar-reporte:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write        # Necesario para hacer commit y push
+      contents: write
 
     steps:
       - name: Checkout repositorio
@@ -28,12 +31,17 @@ jobs:
       - name: Ejecutar agente de noticias
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CI: true
         run: python agent.py
 
       - name: Copiar reporte más reciente a docs/index.html
         run: |
           mkdir -p docs
-          latest=$(ls -t reportes/reporte_*.html | head -1)
+          latest=$(ls -t reportes/reporte_*.html 2>/dev/null | head -1)
+          if [ -z "$latest" ]; then
+            echo "❌ No se generó ningún reporte en reportes/"
+            exit 1
+          fi
           cp "$latest" docs/index.html
           echo "✅ Publicando: $latest → docs/index.html"
 
