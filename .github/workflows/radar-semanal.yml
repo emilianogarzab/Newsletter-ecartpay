@@ -54,5 +54,5 @@ jobs:
           git add reportes/ docs/
           git diff --cached --quiet && echo "Sin cambios nuevos." || (
             git commit -m "reporte: radar semanal $(date -u +'%Y-%m-%d')" &&
-            git push --force
+            git push origin HEAD:main --force-with-lease
           )
