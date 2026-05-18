@@ -49,6 +49,8 @@ jobs:
         run: |
           git config user.name "Ecart Pay Bot"
           git config user.email "actions@github.com"
+          git fetch origin
+          git reset --hard origin/main
           git add reportes/ docs/
           git diff --cached --quiet && echo "Sin cambios nuevos." || (
             git commit -m "reporte: radar semanal $(date -u +'%Y-%m-%d')" &&
