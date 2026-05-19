@@ -49,10 +49,12 @@ jobs:
         run: |
           git config user.name "Ecart Pay Bot"
           git config user.email "actions@github.com"
-          git fetch origin                  # sincroniza con remoto antes de commit
-          git reset --hard origin/main
+          git fetch origin
           git add reportes/ docs/
+          git stash
+          git reset --hard origin/main
+          git stash pop
           git diff --cached --quiet && echo "Sin cambios nuevos." || (
             git commit -m "reporte: radar semanal $(date -u +'%Y-%m-%d')" &&
-            git push origin HEAD:main --force-with-lease
+            git push origin HEAD:main --force
           )
