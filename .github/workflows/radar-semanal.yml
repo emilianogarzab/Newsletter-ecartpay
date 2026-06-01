@@ -1,10 +1,10 @@
 name: Radar Semanal Ecart Pay
 on:
   schedule:
-    - cron: '0 12 * * 1'   # Lunes 12:00 UTC = 6:00 AM Monterrey (CST)
+    - cron: '0 12 * * 1'
   workflow_dispatch:
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # Compatibilidad Node.js 24
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   generar-reporte:
     runs-on: ubuntu-latest
@@ -25,16 +25,16 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CI: true
         run: python agent.py
-      - name: Copiar reporte más reciente a docs/index.html
+      - name: Copiar reporte a docs/index.html
         run: |
           mkdir -p docs
           latest=$(ls -t reportes/reporte_*.html 2>/dev/null | head -1)
           if [ -z "$latest" ]; then
-            echo "❌ No se generó ningún reporte en reportes/"
+            echo "No se generó reporte"
             exit 1
           fi
           cp "$latest" docs/index.html
-          echo "✅ Publicando: $latest → docs/index.html"
+          echo "Publicando: $latest"
       - name: Commit y push del reporte
         run: |
           git config user.name "Ecart Pay Bot"
