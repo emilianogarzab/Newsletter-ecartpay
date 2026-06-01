@@ -45,10 +45,12 @@ jobs:
           cp "$latest" docs/index.html
           echo "✅ Publicando: $latest → docs/index.html"
 
-      - name: Commit y push del reporte
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "reporte: radar semanal"
-          file_pattern: reportes/ docs/
-          commit_user_name: Ecart Pay Bot
-          commit_user_email: actions@github.com
+      - - name: Commit y push del reporte
+        run: |
+          git config user.name "Ecart Pay Bot"
+          git config user.email "actions@github.com"
+          git add reportes/ docs/
+          git diff --staged --quiet && echo "Sin cambios" && exit 0
+          git commit -m "reporte: radar semanal"
+          git pull --rebase origin main
+          git push origin main
